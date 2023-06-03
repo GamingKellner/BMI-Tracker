@@ -8,9 +8,12 @@ class User():
         """Constructor for class User"""
         self.username = "Benutzer"
 
-    def create_user(self):
+    def create_user(self, new_username):
         """Method to create a new User"""
-        new_user = input("Wollen Sie einen neuen Benutzer anlegen? (y/n):")
-        if new_user == "y":
-            self.username = input("Benutzername:")
-        return
+        self.username = new_username
+        return f'Benutzer: {self.username} erfolgreich erstellt!'
+
+    def change_username(self, new_username):
+        """Method to change a users name"""
+        self.username = new_username
+        return f'Benutzername erfolgreich zu: {self.username} geändert!'
