@@ -1,5 +1,5 @@
 """Backend for the BMI Tracker application"""
-
+from datetime import date
 
 class User():
     """Class User with methods to create and edit users"""
@@ -23,3 +23,27 @@ class User():
         self.username = new_username
         user_dict = {"Benutzername": self.username, "Alter": self.alter, "Geschlecht": self.geschlecht} #soll später in Tabelle "Benutzer" eingefügt werden
         return f'Benutzername erfolgreich zu: {self.username} geändert!'
+    
+class Measurement():
+    """Class measurement"""
+
+    def __init__(self, username, today, bodyweight, bodyheight):
+        """Constructor for every measurement"""
+        self.username = User.username
+        self.today = today = date.today()
+        self.bodyweight = bodyweight
+        self.bodyheight = bodyheight
+
+    
+class Calculation():
+    """Class Calculation"""
+
+    def __init__(self, username, today, bmi, calories):
+        """Constructor for the class Calculation"""
+        self.username = User.username
+        self.today = today = date.today()
+        self.bmi = bmi
+        self.calories = calories
+
+    def calculate_bmi(self, bodyweight, bodyheight):
+        """Method to to calculate the bmi"""
